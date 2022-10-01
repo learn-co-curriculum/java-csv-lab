@@ -80,7 +80,6 @@ public class CustomerDriver {
     // Write your code here!
   }
 }
-
 ```
 
 ## Instructions
@@ -256,4 +255,3 @@ no
 
 Leslie Knope always orders the waffles with whipped cream
 ```
-
