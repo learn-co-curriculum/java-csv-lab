@@ -1,3 +1,7 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,7 +23,7 @@ public class CustomerDriver {
             System.out.println("Add another customer? (type \"no\" to exit)");
             input = scanner.nextLine();
             System.out.println();
-        } while(input.equalsIgnoreCase("no"));
+        } while(!input.equalsIgnoreCase("no"));
 
         writeFile("customer.csv", customers);
         System.out.println(readFile("customer.csv"));

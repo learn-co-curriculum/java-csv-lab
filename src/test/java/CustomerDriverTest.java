@@ -1,10 +1,13 @@
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,29 +44,69 @@ class CustomerDriverTest {
     void tearDown() {
     }
 
+    @Disabled
     @Test
-    void testOneCustomer() {
+    void testReadOneCustomer() {
         String filename = "test-customer1.csv";
-        customers.add(ron);
-        CustomerDriver.writeFile(filename, customers);
         assertEquals(ron.toString(), CustomerDriver.readFile(filename));
     }
 
+    @Disabled
     @Test
-    void testMultipleCustomers() {
+    void testReadMultipleCustomers() {
         String filename = "test-customer2.csv";
-        customers.add(ron);
-        customers.add(leslie);
-        customers.add(ben);
-        CustomerDriver.writeFile(filename, customers);
         String expectedOutput = String.format("%s%n%s%n%s", ron.toString(), leslie.toString(), ben.toString());
         assertEquals(expectedOutput, CustomerDriver.readFile(filename));
     }
 
+    @Disabled
     @Test
-    void testNoCustomers() {
+    void testReadNoCustomers() {
         String filename = "test-customer3.csv";
         CustomerDriver.writeFile(filename, customers);
         assertEquals("", CustomerDriver.readFile(filename));
+    }
+
+    @Disabled
+    @Test
+    void testWriteOneCustomer() {
+        Path path = Paths.get("test-customer4.csv");
+        customers.add(ben);
+        CustomerDriver.writeFile(path.toString(), customers);
+        try {
+            assertEquals("Ben,Wyatt,calzone", Files.readString(path));
+        } catch (IOException ioException) {
+            fail("Caught exception in testWriteOneCustomer - fail test.");
+        }
+    }
+
+    @Disabled
+    @Test
+    void testWriteMultipleCustomers() {
+        Path path = Paths.get("test-customer5.csv");
+        customers.add(ben);
+        customers.add(leslie);
+        customers.add(ron);
+        CustomerDriver.writeFile(path.toString(), customers);
+        String expectedOutput = "Ben,Wyatt,calzone\n" +
+                "Leslie,Knope,waffles with whipped cream\n" +
+                "Ron,Swanson,four-horse meals of the egg-pork-alypse";
+        try {
+            assertEquals(expectedOutput, Files.readString(path));
+        } catch (IOException ioException) {
+            fail("Caught exception in testWriteMultipleCustomers - fail test.");
+        }
+    }
+
+    @Disabled
+    @Test
+    void testWriteNoCustomers() {
+        Path path = Paths.get("test-customer6.csv");
+        CustomerDriver.writeFile(path.toString(), customers);
+        try {
+            assertEquals(0, Files.size(path));
+        } catch (IOException ioException) {
+            fail("Caught exception in testWriteNoCustomers - fail test.");
+        }
     }
 }
