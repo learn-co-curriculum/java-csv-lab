@@ -91,7 +91,7 @@ file format would look like this:
 Leslie,Knope,waffles with whipped cream
 ```
 
-To implement the reading and writing of a CSV file, considering the following
+To implement the reading and writing of a CSV file, consider the following
 instructions and tips:
 
 - Write the method to write to a CSV file.
