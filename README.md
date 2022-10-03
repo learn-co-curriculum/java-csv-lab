@@ -189,7 +189,6 @@ class CustomerDriverTest {
     @Test
     void testReadNoCustomers() {
         String filename = "test-customer3.csv";
-        CustomerDriver.writeFile(filename, customers);
         assertEquals("", CustomerDriver.readFile(filename));
     }
 
