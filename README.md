@@ -99,18 +99,17 @@ instructions and tips:
     that creates a comma-separated `String` object of the
     `firstName,lastName,mealChoice` of the favorite customer.
     - Refer back to the CSV lesson.
-  - Use a `FileWriter` object to write the list of favorite customers to a CSV
-    formatted file.
-    - Refer back to the File Input Output (IO) lesson.
-    - Refer back to the CSV lesson.
+  - Use any of the solutions we learned on how to write to a file in Java to
+    write the list of favorite customers to a CSV formatted file.
+    - Refer back to the previous lessons.
 - Write the method to read from a CSV file.
   - Add a new constructor to the `FavoriteCustomer` class that takes a line of
     content from the CSV file to create a `FavoriteCustomer` object.
     - Refer back to the CSV lesson.
     - Make use of the `split()` method from the `String` class.
-  - Use a `Scanner` object to read from the CSV formatted file.
-    - Refer back to the File Input Output lesson.
-    - Refer back to the CSV lesson.
+  - Use any of the solutions we learned on how to read from a file in Java to
+    read in the CSV formatted file.
+    - Refer back to the previous lessons.
   - Return a `String` to print out to the console the `FavoriteCustomer` objects
     that were read in from the CSV.
     - Refer back to the CSV lesson.
