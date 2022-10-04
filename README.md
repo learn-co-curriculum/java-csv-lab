@@ -87,7 +87,7 @@ public class CustomerDriver {
 Modify a `CustomerDriver` class that will read and write a CSV file. The CSV
 file format would look like this:
 
-```plaintext
+```text
 Leslie,Knope,waffles with whipped cream
 ```
 
@@ -241,7 +241,7 @@ class CustomerDriverTest {
 
 Also consider the following example run to help you:
 
-```plaintext
+```text
 What is the first name of the favorite customer?
 Leslie
 What is the last name of the favorite customer?
